@@ -1,0 +1,42 @@
+include ../icon/icon
+
+.calculator(ng-controller="calcCtrl")
+	.calculator__display
+		.calculator__num(ng-bind="dispVal")
+			| {{dispVal}}
+		.calculator__action(ng-bind="operate")
+			| {{operate}
+	.calculator__keyboard
+		.calculator__raw-btns
+			.calculator__btn(ng-click="clearAll()") C
+			.calculator__btn MC
+			.calculator__btn MR
+			.calculator__btn M+
+		.calculator__raw-btns
+			.calculator__btn.calculator__btn_type_svg
+				+icon('number-remove').calculator__icon
+			.calculator__btn.calculator__btn_type_svg
+				+icon('contrast').calculator__icon
+			.calculator__btn %
+			.calculator__btn.calculator__btn_type_svg
+				+icon('division').calculator__icon
+		.calculator__raw-btns
+			.calculator__btn(ng-click="updatepVal(7)" ng-dbclick="return false;") 7
+			.calculator__btn(ng-click="updatepVal(8)") 8
+			.calculator__btn(ng-click="updatepVal(9)") 9
+			.calculator__btn X
+		.calculator__raw-btns
+			.calculator__btn(ng-click="updatepVal(4)") 4
+			.calculator__btn(ng-click="updatepVal(5)") 5
+			.calculator__btn(ng-click="updatepVal(6)") 6
+			.calculator__btn(ng-click="minus()") -
+		.calculator__raw-btns
+			.calculator__btn(ng-click="updatepVal(1)") 1
+			.calculator__btn(ng-click="updatepVal(2)") 2
+			.calculator__btn(ng-click="updatepVal(3)") 3
+			.calculator__btn(ng-click="plus()") +
+		.calculator__raw-btns
+			.calculator__btn.calculator__btn_type_long(ng-click="updatepVal(0)") 0
+			.calculator__btn(ng-click='addComa()') .
+			.calculator__btn.calculator__btn_type_equal(ng-click="calculate()") =
+

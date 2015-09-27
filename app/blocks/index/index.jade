@@ -1,0 +1,38 @@
+include ../content/content
+include ../container/container
+include ../subtitle/subtitle
+include ../heading/heading
+include ../list/list
+include ../col/col
+include ../arrow/arrow
+include ../tree/tree
+
+mixin index()
+	.index
+		+content()
+			//-.index__group
+				//-+subtitle()
+
+			//-+heading()
+
+			//-.index__group
+				//-+list(getData(''))
+
+			//-.index__group
+				+subtitle()
+
+			+container()
+				//-+col()
+					+heading()
+					//-+tree(getData('source'))
+
+				//-+col()
+					.index__arrow
+						//-+arrow()
+
+				//-+col()
+					+heading()
+					//-+tree(getData(''))
+
+				include ../calculator/calculator
+

@@ -1,0 +1,72 @@
+.calculator
+	width 300px
+	padding 10px
+	margin 0 auto
+	background-color #000
+
+	&__display
+		height 128px
+		padding-bottom 30px
+		padding-right 15px
+		margin-bottom 23px
+		font-size 80px
+		color #fff
+		text-align right
+		text-overflow: ellipsis;
+		background-color rgba(255, 255, 255, .5)
+		overflow hidden
+
+	&__action
+		font-size 22px
+
+	&__raw-btns
+		display flex
+		justify-content: space-between;
+		margin-bottom: 11px;
+
+	&__btn
+		width 60px
+		height 50px
+		padding-top 1.3em
+		font-size 14px
+		text-align center
+		color #fff
+		background-color #333
+		cursor pointer
+
+		&:hover
+			padding-top .5em
+			background-color #eea232
+			font-size 22px
+
+		&:active
+			color #000
+			background-color lighten(#eea232, 15)
+			box-shadow: inset 1px 1px 11px 0 rgba(0,0,0,0.75);
+
+		&_type_long
+			width 133px
+
+		&_type_equal
+			background-color #eea232
+
+		&_type_devide
+			padding-top 1em
+
+	&__btn_type_svg:hover
+		padding-top .3em
+
+	&__btn_type_svg:hover &
+		&__icon
+			width 30px
+			height 30px
+
+	&__btn_type_svg:active &
+		&__icon
+			fill #000
+
+	&__icon
+		width 20px
+		height 20px
+		fill #fff
+
