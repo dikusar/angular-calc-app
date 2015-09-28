@@ -11,6 +11,7 @@ $(function () {
 			$scope.operate = '';
 			$scope.newNumber = true;
 			$scope.memory = '';
+			$scope.dispMemory = '0';
 
 			function refreshData(operate) {
 				$scope.newNumber = true;
@@ -26,7 +27,19 @@ $(function () {
 					$scope.dispVal = $scope.dispVal + String(num);
 				}
 				if (num === ' ' && $scope.dispVal !== '0') {
-					$scope.dispVal = $scope.dispVal.replace(num, '');
+					$scope.dispVal = $scope.dispVal.slice(0, $scope.dispVal.length - 2);
+				}
+			};
+
+			$scope.memoryAction = function (action) {
+				if (action === 'M+') {
+					$scope.dispMemory = parseFloat($scope.dispMemory) + parseFloat($scope.dispVal);
+				}
+				if (action === 'MR' && $scope.dispMemory !== '0') {
+					$scope.dispVal = $scope.dispMemory;
+				}
+				if (action === 'MC') {
+					$scope.dispMemory = '0';
 				}
 			};
 

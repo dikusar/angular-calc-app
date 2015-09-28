@@ -2,6 +2,10 @@ include ../icon/icon
 
 .calculator(ng-controller="calcCtrl")
 	.calculator__display
+		.calculator__text
+			| memory
+		.calculator__memory(ng-model="dispMemory") 
+			| {{dispMemory}}
 		.calculator__num(ng-bind="dispVal")
 			| {{dispVal}}
 		.calculator__action(ng-bind="operate")
@@ -9,9 +13,9 @@ include ../icon/icon
 	.calculator__keyboard
 		.calculator__raw-btns
 			.calculator__btn(ng-click="clearAll()") C
-			.calculator__btn MC
-			.calculator__btn MR
-			.calculator__btn M+
+			.calculator__btn(ng-click="memoryAction('MC')") MC
+			.calculator__btn(ng-click="memoryAction('MR')" title="click to display memory number") MR
+			.calculator__btn(ng-click="memoryAction('M+')") M+
 		.calculator__raw-btns
 			.calculator__btn.calculator__btn_type_svg(ng-click="updatepVal(' ')")
 				+icon('number-remove').calculator__icon
