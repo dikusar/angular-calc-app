@@ -161,7 +161,7 @@ rules:
     object-curly-spacing: [1, "never"]
     object-shorthand: [2, "always"]
     one-var: [2, "never"]
-    operator-assignment: [2, "always"]
+    operator-assignment: [2, "never"]
     operator-linebreak: 0
     padded-blocks: 0
     prefer-const: 1

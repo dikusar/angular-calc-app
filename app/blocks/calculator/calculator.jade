@@ -13,18 +13,18 @@ include ../icon/icon
 			.calculator__btn MR
 			.calculator__btn M+
 		.calculator__raw-btns
-			.calculator__btn.calculator__btn_type_svg
+			.calculator__btn.calculator__btn_type_svg(ng-click="updatepVal(' ')")
 				+icon('number-remove').calculator__icon
 			.calculator__btn.calculator__btn_type_svg
 				+icon('contrast').calculator__icon
-			.calculator__btn %
-			.calculator__btn.calculator__btn_type_svg
+			.calculator__btn(ng-click="percent()") %
+			.calculator__btn.calculator__btn_type_svg(ng-click="divide()")
 				+icon('division').calculator__icon
 		.calculator__raw-btns
-			.calculator__btn(ng-click="updatepVal(7)" ng-dbclick="return false;") 7
+			.calculator__btn(ng-click="updatepVal(7)") 7
 			.calculator__btn(ng-click="updatepVal(8)") 8
 			.calculator__btn(ng-click="updatepVal(9)") 9
-			.calculator__btn X
+			.calculator__btn(ng-click="multiply()") X
 		.calculator__raw-btns
 			.calculator__btn(ng-click="updatepVal(4)") 4
 			.calculator__btn(ng-click="updatepVal(5)") 5
