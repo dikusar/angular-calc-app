@@ -19,8 +19,8 @@ include ../icon/icon
 		.calculator__raw-btns
 			.calculator__btn.calculator__btn_type_svg(ng-click="updatepVal(' ')" title="delete last number")
 				+icon('number-remove').calculator__icon
-			.calculator__btn.calculator__btn_type_svg
-				+icon('contrast').calculator__icon(ng-click="reverseNum()" title="reverse number")
+			.calculator__btn.calculator__btn_type_svg(ng-click="reverseNum()" title="reverse number")
+				+icon('contrast').calculator__icon
 			.calculator__btn(ng-click="percent()") %
 			.calculator__btn.calculator__btn_type_svg(ng-click="divide()" title="divide number")
 				+icon('division').calculator__icon
