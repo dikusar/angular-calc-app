@@ -2,9 +2,9 @@ include ../icon/icon
 
 .calculator(ng-controller="calcCtrl")
 	.calculator__display
-		.calculator__text
-			| memory
-		.calculator__memory(ng-model="dispMemory") 
+		.calculator__text(ng-class="{'calculator__text_active': dispMemory !== '0'}")
+			| in memory
+		.calculator__memory(ng-model="dispMemory" ng-class="{'calculator__memory_active': dispMemory !== '0'}")
 			| {{dispMemory}}
 		.calculator__num(ng-bind="dispVal")
 			| {{dispVal}}
@@ -13,16 +13,16 @@ include ../icon/icon
 	.calculator__keyboard
 		.calculator__raw-btns
 			.calculator__btn(ng-click="clearAll()") C
-			.calculator__btn(ng-click="memoryAction('MC')") MC
+			.calculator__btn(ng-click="memoryAction('MC')" title="memory clean") MC
 			.calculator__btn(ng-click="memoryAction('MR')" title="click to display memory number") MR
-			.calculator__btn(ng-click="memoryAction('M+')") M+
+			.calculator__btn(ng-click="memoryAction('M+')" title="add to memory") M+
 		.calculator__raw-btns
-			.calculator__btn.calculator__btn_type_svg(ng-click="updatepVal(' ')")
+			.calculator__btn.calculator__btn_type_svg(ng-click="updatepVal(' ')" title="delete last number")
 				+icon('number-remove').calculator__icon
 			.calculator__btn.calculator__btn_type_svg
-				+icon('contrast').calculator__icon
+				+icon('contrast').calculator__icon(ng-click="reverseNum()" title="reverse number")
 			.calculator__btn(ng-click="percent()") %
-			.calculator__btn.calculator__btn_type_svg(ng-click="divide()")
+			.calculator__btn.calculator__btn_type_svg(ng-click="divide()" title="divide number")
 				+icon('division').calculator__icon
 		.calculator__raw-btns
 			.calculator__btn(ng-click="updatepVal(7)") 7
