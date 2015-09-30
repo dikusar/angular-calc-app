@@ -10,7 +10,6 @@ $(function () {
 			$scope.dispVal = '0';
 			$scope.operate = '';
 			$scope.newNumber = true;
-			$scope.reverse = false;
 			$scope.memory = '';
 			$scope.dispMemory = '0';
 
@@ -70,16 +69,19 @@ $(function () {
 			};
 
 			$scope.addComa = function () {
+				if (String($scope.dispVal).indexOf('.') > 0) {
+					return;
+				}
 				$scope.dispVal = $scope.dispVal + '.';
 			};
 
 			$scope.reverseNum = function () {
 				if (parseFloat($scope.dispVal) > 0) {
 					$scope.dispVal = '-' + $scope.dispVal;
-					// $scope.reverse = true;
+				} else if (parseFloat($scope.dispVal) === 0) {
+					$scope.dispVal = '0';
 				} else {
 					$scope.dispVal = $scope.dispVal.slice(1, $scope.dispVal.length);
-					// $scope.reverse = false;
 				}
 			};
 
